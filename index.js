@@ -35,3 +35,29 @@ Test.assertEquals(numberToOrdinal(1), '1st');
 Test.assertEquals(numberToOrdinal(2), '2nd');
 Test.assertEquals(numberToOrdinal(3), '3rd');
 Test.assertEquals(numberToOrdinal(4), '4th');
+
+//Sum of Many Ints
+
+function f(n, m) {
+	var i = 1;
+  var sum = 0;
+  while(i <= n) {
+  	sum += i % m;
+    i++;
+  }
+  return sum;
+}
+
+Test.describe('', function() {
+  Test.it('f(10, 5)', function() {
+    Test.assertEquals(f(10, 5), 20);
+  });
+
+  Test.it('f(20, 20)', function() {
+    Test.assertEquals(f(20, 20), 190);
+  });
+
+  Test.it('f(15, 10)', function() {
+    Test.assertEquals(f(15, 10), 60);
+  });
+});
