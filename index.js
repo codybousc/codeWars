@@ -107,3 +107,12 @@ function likes(names) {
     default: return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
   }
 }
+
+
+//Validate phone number in format (123) 456-7890
+function validPhoneNumber(phoneNumber){
+  var pattern = /\(\d{3}\)\s\d{3}-\d{4}/;
+  return pattern.test(phoneNumber);
+}
+
+console.log(validPhoneNumber("(123) 456-7890"), "should return true");
