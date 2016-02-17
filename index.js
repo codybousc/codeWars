@@ -116,3 +116,9 @@ function validPhoneNumber(phoneNumber){
 }
 
 console.log(validPhoneNumber("(123) 456-7890"), "should return true");
+
+//Top vote
+//======================================================================================
+function validPhoneNumber(phoneNumber){
+  return /^\(\d{3}\) \d{3}\-\d{4}$/.test(phoneNumber);
+}
