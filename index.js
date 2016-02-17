@@ -111,7 +111,7 @@ function likes(names) {
 
 //Validate phone number in format (123) 456-7890
 function validPhoneNumber(phoneNumber){
-  var pattern = /\(\d{3}\)\s\d{3}-\d{4}/;
+  var pattern = /^\(\d{3}\)\s\d{3}-\d{4}$/;
   return pattern.test(phoneNumber);
 }
 
