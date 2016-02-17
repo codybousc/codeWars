@@ -122,3 +122,30 @@ console.log(validPhoneNumber("(123) 456-7890"), "should return true");
 function validPhoneNumber(phoneNumber){
   return /^\(\d{3}\) \d{3}\-\d{4}$/.test(phoneNumber);
 }
+
+
+//Is Prime
+function divisors(integer) {
+  var answerArr = [];
+	for(var i = integer - 1; i > 1; i--) {
+  	if(integer % i == 0) {
+    	answerArr.unshift(i);
+    }
+  }
+  if(answerArr.length == 0) {
+  	return integer + " is prime";
+  }
+  return answerArr;
+};
+
+
+console.log(divisors(15));
+console.log(divisors(12));
+console.log(divisors(13));
+
+//Top Voted
+function divisors(integer) {
+  var res = []
+  for (var i = 2; i <= Math.floor(integer / 2); ++i) if (integer % i == 0) res.push(i);
+  return res.length ? res : integer + ' is prime'
+};
