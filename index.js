@@ -192,3 +192,33 @@ function scoreThrows(radiuses){
 
 
 console.log("answer ", scoreThrows([ ])); //0
+
+//Typer.js
+
+var typer = (function(TO_BE_DEFINED_BY_YOU) {
+
+  return {
+    isNumber: TO_BE_DEFINED_BY_YOU,
+    isString: function(item) {return (typeof item === "string" ? true : false)},
+    isArray: function(item) {
+    	 return Object.prototype.toString.call(item) === '[object Array]';
+      },
+    isFunction: function(item) {return (typeof item === "function" ? true : false)},
+    isDate: function(item) {return (item instanceof Date ? true : false)},
+    isRegExp: TO_BE_DEFINED_BY_YOU,
+    isBoolean: function(item) {return (typeof item === "boolean" ? true : false)},
+    isError: TO_BE_DEFINED_BY_YOU,
+    isNull: TO_BE_DEFINED_BY_YOU,
+    isUndefined: function(item) {return (typeof item === "undefined" ? true : false)}
+  }
+}(null));
+
+var someFunc = function() {
+	return 3 + 5;
+}
+
+var cat = "kitty cat";
+
+console.log(typer.isArray(cat));
+console.log(typer.isString(5));
+console.log(typer.isFunction(someFunc)); 
