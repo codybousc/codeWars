@@ -201,7 +201,14 @@ var typer = (function(item) {
     isNumber: function(item) {
     		return !isNaN(item) && (typeof item === 'number' || item instanceof Number);
     },
-    isString: function(item) {return (typeof item === "string" ? true : false)},
+    isString: function(item) {
+       if (typeof item === "string" || item instanceof String) {
+          return true;
+       }
+       else {
+          return false;
+       }
+     },
     isArray: function(item) {
     	 return Object.prototype.toString.call(item) === '[object Array]';
       },
@@ -210,9 +217,9 @@ var typer = (function(item) {
     isRegExp: function(item) {
     	return Object.prototype.toString.call(item) === '[object RegExp]';
     },
-    isBoolean: function(item) {return (typeof item === "boolean" ? true : false)},
-    isError: item,
-    isNull: item,
+    isBoolean: function(item) {return item === true || item === false || toString.call(item) === '[object Boolean]';},
+    isError: function(item) {return toString.call(item) === '[object Error]';},
+    isNull: function(item) {return ( item === null ? true : false)},
     isUndefined: function(item) {return (typeof item === "undefined" ? true : false)}
   }
 }(null));
