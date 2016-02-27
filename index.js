@@ -234,3 +234,27 @@ console.log(typer.isArray(cat));
 console.log(typer.isString(5));
 console.log(typer.isFunction(someFunc));
 console.log(typer.isNumber(9))
+
+//Top Voted
+
+var typer = (function(){
+  function type(val, expected) {
+    var ret = Object.prototype.toString.call(val).match(/[A-Z]\w+/)[0]
+    return ret != 'Object' ?
+           ret === expected :
+           val.constructor.toString().match(/\b\w+/g)[1] === expected;
+  }
+
+  return {
+    isNumber:    function(x){return type(x,'Number') && !isNaN(x)},
+    isString:    function(x){return type(x,'String')},
+    isArray:     function(x){return type(x,'Array')},
+    isFunction:  function(x){return type(x,'Function')},
+    isDate:      function(x){return type(x,'Date')},
+    isRegExp:    function(x){return type(x,'RegExp')},
+    isBoolean:   function(x){return type(x,'Boolean')},
+    isError:     function(x){return type(x,'Error')},
+    isNull:      function(x){return type(x,'Null')},
+    isUndefined: function(x){return type(x,'Undefined')}
+  }
+})()
