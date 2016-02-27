@@ -149,3 +149,46 @@ function divisors(integer) {
   for (var i = 2; i <= Math.floor(integer / 2); ++i) if (integer % i == 0) res.push(i);
   return res.length ? res : integer + ' is prime'
 };
+
+//Throwing Darts
+function scoreThrows(radiuses){
+	var total = 0;
+  var allLessThan5 = true;
+	for(var i = 0; i < radiuses.length; i++) {
+  	if(radiuses[i] > 10 || radiuses.length == 0) {
+    	allLessThan5 = false;
+    }
+  	else if(radiuses[i] >= 5 && radiuses[i] <= 10)	{
+    	total += 5;
+      allLessThan5 = false;
+    }
+    else if (radiuses[i] < 5) {
+    	total += 10;
+    }
+  }
+  if(allLessThan5 && radiuses.length > 0) {
+  	total += 100;
+  }
+  return total;
+}
+
+//Top Voted
+function scoreThrows(radiuses){
+
+  if (radiuses.length <= 0) { return 0 }
+
+  var score = 0
+  var award = true
+  for(var i = 0; i < radiuses.length; i++) {
+    if      (radiuses[i] < 5)   { score += 10 }
+    else if (radiuses[i] <= 10) { score += 5; award = false }
+    else                        { award = false }
+  }
+
+  if (award) { score += 100 }
+
+  return score;
+}
+
+
+console.log("answer ", scoreThrows([ ])); //0
