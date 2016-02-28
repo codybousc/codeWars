@@ -258,3 +258,46 @@ var typer = (function(){
     isUndefined: function(x){return type(x,'Undefined')}
   }
 })()
+
+//Voted second best & clearest
+
+var typer = (function() {
+  return {
+    isUndefined: function (x) { return typeof x == "undefined" },
+    isFunction:  function (x) { return typeof x == "function" },
+    isNumber:    function (x) { return typeof x != "undefined" && typeof x.valueOf() == "number" && !isNaN(x.valueOf()) },
+    isString:    function (x) { return typeof x != "undefined" && typeof x.valueOf() == "string" },
+    isBoolean:   function (x) { return typeof x != "undefined" && typeof x.valueOf() == "boolean" },
+    isArray:     function (x) { return x instanceof Array },
+    isDate:      function (x) { return x instanceof Date },
+    isRegExp:    function (x) { return x instanceof RegExp },
+    isError:     function (x) { return x instanceof Error },
+    isNull:      function (x) { return x === null }
+  };
+}());
+
+//Sum of Multiples of 3 && 5 less than arg
+function solution(number){
+	var total = 0;
+	for(var i = 0; i < number; i++) {
+  	if(i % 3 == 0) {
+    	total += i;
+    }
+    else if(i % 5 == 0) {
+    	total += i;
+    }
+  }
+  return total;
+}
+
+//Top Voted
+function solution(number){
+  var sum = 0;
+
+  for(var i = 1;i< number; i++){
+    if(i % 3 == 0 || i % 5 == 0){
+      sum += i
+    }
+  }
+  return sum;
+}
