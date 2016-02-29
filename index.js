@@ -301,3 +301,38 @@ function solution(number){
   }
   return sum;
 }
+
+//Matrix Addition
+function matrixAddition(a, b){
+  var finalArr = [];
+  var arr;
+  for(var i = 0; i < a.length; i++) {
+    arr = [];
+    for(var j = 0; j < a[i].length; j++) {
+      arr.push(a[i][j] + b[i][j]);
+    }
+    finalArr.push(arr);
+  }
+
+  return finalArr;
+}
+
+//Two Top Voted
+
+//#1
+function matrixAddition(a, b){
+  return a.map(function(n, i){
+    return n.map(function(o, j){
+      return o + b[i][j];
+    });
+  });
+}
+
+//#2
+function matrixAddition(a, b){
+  return a.map(function(row, i) {
+    return row.map(function(col, ii) {
+      return col + b[i][ii];
+    });
+  });
+}
